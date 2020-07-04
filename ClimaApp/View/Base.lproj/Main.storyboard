@@ -102,6 +102,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="7jY-wx-Gxc" id="EVc-cu-u3o"/>
+                        <outlet property="degreesLable" destination="HhE-P7-ia7" id="PQo-Oz-N5X"/>
+                        <outlet property="searchButton" destination="kBw-IB-YSF" id="2bF-hu-gBR"/>
+                        <outlet property="searchTextField" destination="oCU-wb-KRo" id="ikX-j5-UKV"/>
+                        <outlet property="weaatherConditionImage" destination="Njj-zI-bvd" id="AfG-VL-2fZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

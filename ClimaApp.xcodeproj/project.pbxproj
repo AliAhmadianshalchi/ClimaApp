@@ -58,13 +58,37 @@
 			children = (
 				A0DC503124B1072E00A8F44B /* AppDelegate.swift */,
 				A0DC503324B1072E00A8F44B /* SceneDelegate.swift */,
-				A0DC503524B1072E00A8F44B /* ViewController.swift */,
-				A0DC503724B1072E00A8F44B /* Main.storyboard */,
+				A0DC504924B11E2200A8F44B /* Controller */,
+				A0DC504824B11E1C00A8F44B /* View */,
+				A0DC504724B11E1600A8F44B /* Model */,
 				A0DC503A24B1073100A8F44B /* Assets.xcassets */,
 				A0DC503C24B1073100A8F44B /* LaunchScreen.storyboard */,
 				A0DC503F24B1073100A8F44B /* Info.plist */,
 			);
 			path = ClimaApp;
+			sourceTree = "<group>";
+		};
+		A0DC504724B11E1600A8F44B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0DC504824B11E1C00A8F44B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0DC503724B1072E00A8F44B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0DC504924B11E2200A8F44B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0DC503524B1072E00A8F44B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

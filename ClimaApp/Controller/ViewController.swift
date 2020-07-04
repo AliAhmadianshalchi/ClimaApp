@@ -9,8 +9,13 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var degreesLable: UILabel!
+    @IBOutlet weak var weaatherConditionImage: UIImageView!
     
     let locationManager = CLLocationManager()
     
@@ -21,7 +26,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        weatherManager.delegate = self
         searchTextField.delegate = self
         
     }
