@@ -35,7 +35,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="pUW-IV-DnO"/>
                                                 </constraints>
                                                 <color key="tintColor" name="itemColorsCustom"/>
-                                                <state key="normal" backgroundImage="location.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="location.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XYP-97-Vpa"/>
                                                 </connections>
@@ -126,7 +126,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.min" catalog="system" width="128" height="121"/>
         <namedColor name="BackGroundColorCustom">

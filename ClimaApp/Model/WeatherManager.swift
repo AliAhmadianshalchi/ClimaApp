@@ -10,8 +10,8 @@ import Foundation
 import CoreLocation
 
 protocol WeatherManagerDelegate {
-    func didUpdateLocations(_ weatherManager: WeatherManager, weather: WeatherModel)
-    func didFailWithError(error: Error)
+    func updatedWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
+    func failedWithError(error: Error)
 }
 
 struct WeatherManager {
@@ -35,12 +35,12 @@ struct WeatherManager {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, respone , error) in
                 if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+                    self.delegate?.failedWithError(error: error!)
                     return
                 }
                 if let safeData = data {
                     if let weather = self.parseJSON(safeData) {
-                        self.delegate?.didUpdateLocations(self, weather: weather)
+                        self.delegate?.updatedWeather(self, weather: weather)
                     }
                 }
             }
@@ -60,7 +60,7 @@ struct WeatherManager {
             let weather = WeatherModel(conditionCode: id, cityName: name, temperature: temp)
             return weather
         } catch { 
-            delegate?.didFailWithError(error: error)
+            delegate?.failedWithError(error: error)
             return nil
         }
     }
