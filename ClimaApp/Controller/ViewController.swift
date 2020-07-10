@@ -97,9 +97,6 @@ extension ViewController: CLLocationManagerDelegate {
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
     }
-//    func locationManager(_ manager: CLLocationManager, updatedLocation locations: [CLLocation]) {
-//
-//    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
@@ -111,6 +108,19 @@ extension ViewController: CLLocationManagerDelegate {
         
     }
 }
+
+//extension ViewController: UITableViewDelegate , UITableViewDataSource {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//    }
+//    
+//    
+//}
 
 
 

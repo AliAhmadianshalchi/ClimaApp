@@ -16,8 +16,9 @@ protocol WeatherManagerDelegate {
 
 struct WeatherManager {
     
-     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
-       
+     let weatherURL = "https://api.openweathermap.org/data/2.5/forecast?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
+//      "https://api.openweathermap.org/data/2.5/forecast?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
+//      "https://api.openweathermap.org/data/2.5/weather?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
        var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String) {
@@ -53,9 +54,9 @@ struct WeatherManager {
         
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            let id = decodedData.weather[0].id
-            let temp = decodedData.main.temp
-            let name = decodedData.name
+            let id = decodedData.list[0].weather[0].id
+            let temp = decodedData.list[0].main.temp
+            let name = decodedData.city.name
             
             let weather = WeatherModel(conditionCode: id, cityName: name, temperature: temp)
             return weather
