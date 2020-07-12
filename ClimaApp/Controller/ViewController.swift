@@ -85,6 +85,10 @@ extension ViewController: WeatherManagerDelegate {
             self.weaatherConditionImage.image = UIImage(systemName: weather[0].conditionName)
             self.cityNameLabel.text = weather[0].cityName
             
+            self.weathers = weather
+            self.weathers.removeFirst()
+            self.forcastTableView.reloadData()
+            
         }
         
     }
@@ -116,6 +120,7 @@ extension ViewController: CLLocationManagerDelegate {
         
     }
 }
+
 
 extension ViewController: UITableViewDelegate , UITableViewDataSource {
     
