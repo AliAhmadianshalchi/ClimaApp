@@ -10,15 +10,14 @@ import Foundation
 import CoreLocation
 
 protocol WeatherManagerDelegate {
-    func updatedWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
+    func updatedWeather(_ weatherManager: WeatherManager, weather: [WeatherModel])
     func failedWithError(error: Error)
 }
 
 struct WeatherManager {
     
      let weatherURL = "https://api.openweathermap.org/data/2.5/forecast?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
-//      "https://api.openweathermap.org/data/2.5/forecast?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
-//      "https://api.openweathermap.org/data/2.5/weather?appid=2f0297ae6a44f55cc6fb3af51170ad79&units=metric"
+    
        var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String) {
@@ -49,20 +48,30 @@ struct WeatherManager {
         }
     }
     
-    func parseJSON(_ weatherData: Data) -> WeatherModel? {
+    func parseJSON(_ weatherData: Data) -> [WeatherModel]? {
         let decoder =  JSONDecoder()
         
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            let id = decodedData.list[0].weather[0].id
-            let temp = decodedData.list[0].main.temp
-            let name = decodedData.city.name
             
-            let weather = WeatherModel(conditionCode: id, cityName: name, temperature: temp)
-            return weather
+            var weatherArray: [WeatherModel] = []
+            
+            for item in decodedData.list {
+                let id = item.weather[0].id
+                let temp = item.main.temp
+                let name = decodedData.city.name
+                let date = item.dt_txt
+                
+                let weather = WeatherModel(conditionCode: id, cityName: name, temperature: temp, date: date)
+                
+                weatherArray.append(weather)
+            }
+            
+            return weatherArray
         } catch { 
             delegate?.failedWithError(error: error)
             return nil
         }
     }
+    
 }
